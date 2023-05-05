@@ -25,7 +25,3 @@ VALUES  ('RuPaul', 'Charles', 7, 1),
         ('John', 'Doe', 3, 1),
         ('Jane', 'Doe', 5, 1),
         ('Chelsea', 'Handler', 6, 1);
-
-
-
-    
