@@ -16,7 +16,7 @@ VALUES  ('contestant', 10000, 1),
 INSERT INTO employee(first_name, last_name, role_id, manager_id)
 VALUES  ('RuPaul', 'Charles', 7, 1),
         ('Michelle', 'Visage', 2, 1),
-        ('Jinkx', 'Monsoon', 1, 1),
+        ('Jinx', 'Monsoon', 1, 1),
         ('Sasha', 'Velour', 1, 1),
         ('Santino', 'Rice', 2, 1),
         ('Ross', 'Mathews', 2, 1),
