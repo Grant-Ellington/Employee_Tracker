@@ -1,3 +1,4 @@
+// Boiler plate for mysql2 and inquirer-------------------------------------
 const inquirer = require('inquirer');
 const mysql2 = require('mysql2');
 
@@ -11,7 +12,7 @@ const db = mysql2.createConnection(
     console.log(`Connected to the movies_db database.`)
   );
 
-//   Questions----------------------------
+//   Questions------------------------------------------------------------------
 const questions = [
     {type: 'list',
     name: 'options',
@@ -67,6 +68,8 @@ const addEmployeeQuestions = [
         message: "What is their manager's id?"
     }
 ]
+
+// Functions for different queries---------------------------------------------------------------------
 
 const viewAllEmployees = () => {
     db.promise().query('SELECT employee.id, employee.first_name, employee.last_name, role.title AS role, CONCAT(manager.first_name, " ", manager.last_name) AS manager FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN employee manager ON manager.id = employee.manager_id ').then(([response])=>{console.table(response)
@@ -125,12 +128,11 @@ const addEmployee = () => {
 
 const updateEmployee = () => {
     db.promise().query('SELECT employee.id, employee.first_name, employee.last_name, role.title AS role, CONCAT(manager.first_name, " ", manager.last_name) AS manager FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN employee manager ON manager.id = employee.manager_id ').then(([employeeResponse])=>{
-        // console.log(employeeResponse)
         const employeeArr = employeeResponse.map(({id, first_name, last_name})=>({
             name:`${first_name} ${last_name}`,
             value: id
         }))
-        // console.log(employeeArr)
+
         db.promise().query('SELECT role.id, role.title, role.salary, department.department_name FROM role INNER JOIN department ON role.department_id = department.id').then(([roleResponse])=> {
             console.log(roleResponse)
             const roleArr = roleResponse.map(({id, title})=>({
@@ -163,7 +165,11 @@ const updateEmployee = () => {
 
     
 };
-  
+
+
+// show options-main init function-------------------------------------------------------------------- 
+
+
 function showOptions () {
     inquirer.prompt(questions).then((data)=>{
     switch(data.options){
@@ -198,5 +204,3 @@ showOptions();
 
 init();
 
-// mysql query for adding data
-// INSERT INTO [table name] SET [data]
