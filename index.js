@@ -1,7 +1,5 @@
 const inquirer = require('inquirer');
 const mysql2 = require('mysql2');
-const { allowedNodeEnvironmentFlags } = require('process');
-const { inherits } = require('util');
 
 const db = mysql2.createConnection(
     {
@@ -12,6 +10,8 @@ const db = mysql2.createConnection(
     },
     console.log(`Connected to the movies_db database.`)
   );
+
+//   Questions----------------------------
 const questions = [
     {type: 'list',
     name: 'options',
