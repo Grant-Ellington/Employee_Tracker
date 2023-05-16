@@ -17,6 +17,10 @@
   This is a command line application that uses mysql2 to run several different queries.
 
   
+
+https://github.com/Grant-Ellington/Employee_Tracker/assets/109107643/b53d29f9-b7d0-45ca-8664-6ff7c4da7441
+
+
   
   ## Installation
   To install, clone the repository and run in the command line via node. 
